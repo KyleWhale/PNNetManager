@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PNNetManager"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "Change YYCache for YYKit"
 
   # This description is used to generate tags and improve search results.
@@ -91,9 +91,14 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "BANetManager/Classes", "BANetManager/Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
-  spec.public_header_files = "BANetManager/Classes/**/*.h"
+  spec.source_files  = "Classes", "PNNetManager/Classes/**/*.{h,m}"
+  spec.frameworks   = 'UIKit','Foundation'
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' 
+  }
+  spec.user_target_xcconfig = { 
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' 
+  }
 
   # spec.exclude_files = "Classes/Exclude"
 
